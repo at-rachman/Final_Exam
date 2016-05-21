@@ -84,8 +84,6 @@ void getLookingAtLocation(const int currentX, const int currentY, const char cur
 
 	// ADD NECESSARY PARAMETERS.
 	// ADD MISSING CODE.
-  int getLookingAtX = &lookingAtX;
-  int getLookingAtY = &lookingAtY;
   
 	switch(currentSymbol) // #17 Change the last two parameters
 	{
@@ -105,7 +103,6 @@ void getLookingAtLocation(const int currentX, const int currentY, const char cur
 			lookingAtX = currentX;
 			lookingAtY = currentY;
 	}
-  return getLooking
 }
 
 int doPlayerHit(const int hitpoints)
