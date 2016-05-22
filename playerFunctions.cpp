@@ -77,7 +77,7 @@ char convertInventoryIndexToItemChar(const int);
    return currentY;
    } */ // #18 Delete getLookingAtX and Y
 
-void getLookingAtLocation(const int currentX, const int currentY, const char currentSymbol, int &lookingAtX, int &lookingAtY)
+void getLookingAtLocation(const int currentX, const int currentY, const char currentSymbol, int *lookingAtX, int *lookingAtY)
 {
   // DO NOT CHANGE THE FUNCTION NAME OR RETURN TYPE.
   // DO NOT CHANGE THE FIRST THREE PARAMETERS.
