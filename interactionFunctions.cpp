@@ -135,7 +135,6 @@ void doCommand(const char command)
 void doLook(const int x, const int y, const char lookingDirection)
 {
   int lookingAtX, lookingAtY;
-
   char mapSquare = getMapSquare(getLookingAtLocation(x, y, lookingDirection, &lookingAtX, &lookingAtY));
   switch(mapSquare)
   {
