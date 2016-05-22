@@ -76,7 +76,7 @@ char getMapSquare(const int x, const int y)
 	char result = MAP_SQUARE_ROCK;
 	if (x >= 0 && x < MAP_WIDTH && y >= 0 && y < MAP_HEIGHT)
 	{
-	  result = MAP[x][y]; // #10 Atmanjaya Updated 5/17
+	  result = MAP[y][x]; // #10 Atmanjaya Updated 5/17
 	}
 	return result;
 }
@@ -89,7 +89,7 @@ bool setMapSquare(const int x, const int y, const char currentValue, const char 
 		y >= 0 && y < MAP_HEIGHT &&
 		getMapSquare(x, y) == currentValue)
 	{
-		MAP[x][y] = newValue; // #11 Atmanjaya Updated 5/17
+		MAP[y][x] = newValue; // #11 Atmanjaya Updated 5/17
 		result = true;
 	}
 
