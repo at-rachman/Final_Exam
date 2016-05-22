@@ -83,25 +83,25 @@ void getLookingAtLocation(const int currentX, const int currentY, const char cur
   // DO NOT CHANGE THE FIRST THREE PARAMETERS.
 
   // ADD NECESSARY PARAMETERS.
-  // ADD MISSING CODE.
+  // ADD MISSING CODE.  
 
   switch(currentSymbol) // #17 Change the last two parameters
   {
     case LOOKING_LEFT:
-      return lookingAtX = (currentX - 1);
+      *lookingAtX = (currentX - 1);
       break;
     case LOOKING_RIGHT:
-      return lookingAtX = (currentX + 1);
+      *lookingAtX = (currentX + 1);
       break;
     case LOOKING_UP:
-      return lookingAtY = (currentY - 1);
+      *lookingAtY = (currentY - 1);
       break;
     case LOOKING_DOWN:
-      return lookingAtY = (currentY + 1);
+      *lookingAtY = (currentY + 1);
       break;
     default:
-      lookingAtX = currentX;
-      lookingAtY = currentY;
+      *lookingAtX = currentX;
+      *lookingAtY = currentY;
   }
 }
 

@@ -134,7 +134,10 @@ void doCommand(const char command)
 
 void doLook(const int x, const int y, const char lookingDirection)
 {
-	char mapSquare = getMapSquare(lookingAtX(x, lookingDirection), lookingAtY(y, lookingDirection));
+  int lookingAtX, lookingAtY;
+  int getLookingAtLocation(x, y, lookingDirection, &lookingAtX, &lookingAtY);
+
+	char mapSquare = getMapSquare(getLookingAtLocation(x, y, lookingDirection, lookingAtX, lookingAtY));
 	switch(mapSquare)
 	{
 		case MAP_SQUARE_CHASM:
