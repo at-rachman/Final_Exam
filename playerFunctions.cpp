@@ -89,19 +89,23 @@ void getLookingAtLocation(const int currentX, const int currentY, const char cur
   {
     case LOOKING_LEFT:
       *lookingAtX = (currentX - 1);
+      *lookingAtY = currentY;
       break;
     case LOOKING_RIGHT:
       *lookingAtX = (currentX + 1);
+      *lookingAtY = currentY;
       break;
     case LOOKING_UP:
       *lookingAtY = (currentY - 1);
+      *lookingAtX = currentX;
       break;
     case LOOKING_DOWN:
       *lookingAtY = (currentY + 1);
+      *lookingAtX = currentX;
       break;
     default:
-      *lookingAtX = currentX;
-      *lookingAtY = currentY;
+      lookingAtX = currentX;
+      lookingAtY = currentY;
   }
 }
 
