@@ -163,7 +163,7 @@ bool loadGame(string fileName)
 
       for (int i = 0; i < mapWidth * mapHeight; i++)
       {
-        file.getline(buffer, charatersRead);/* MISSING CODE - 1 line */
+        /* MISSING CODE - 1 line */
         if (file.fail())
         {
           break;
@@ -174,8 +174,8 @@ bool loadGame(string fileName)
           continue;
         }
 
-        int row[0] = 0; /* MISSING CODE - FIX THIS LINE */
-        int col[0] = 0; /* MISSING CODE - FIX THIS LINE */
+        int row = 0; /* MISSING CODE - FIX THIS LINE */
+        int col = 0; /* MISSING CODE - FIX THIS LINE */
         tempMap[row][col] = buffer;
         charactersRead++;
       }
@@ -242,7 +242,7 @@ bool loadGame(string fileName)
   return success;
 }
 
-bool saveGame(string fileName, const int playerX, const int playerY, const char lookingDirection, const int werewoflX, const int werewolfY, const char inventoryItems[], const int inventoryValues[], const int inventoryLength, const int werewolfHealth, const int wereworlfStunCount)
+bool saveGame(string fileName, const int playerX, const int playerY, const char lookingDirection, const int werewoflX, const int werewolfY, const char inventoryItems[], const int inventoryValues[], const int inventoryLength, const int werewolfHealth, const int werewolfStunCount)
 {
   bool success = false;
 
@@ -251,7 +251,7 @@ bool saveGame(string fileName, const int playerX, const int playerY, const char 
   if (!file.fail())
   {
     // write map dimensions and player location and other necessary information
-    file << MAP_WIDTH << ' ' << MAP_HEIGHT << ' ' << playerX << ' ' << playerY << ' ' << lookingDirection << ' ' << werewolfX << ' ' << werewoflY << ' ' << werewolfHealth << ' ' << werewolfStunCount << ' ' << endl; /* MISSING CODE */
+    file << MAP_WIDTH << ' ' << MAP_HEIGHT << ' ' << playerX << ' ' << playerY << ' ' << lookingDirection << ' ' << werewolfY << ' ' << werewoflX << ' ' << werewolfHealth << ' ' << werewolfStunCount << ' ' << endl; /* MISSING CODE */
 
     // write map
     for (int i = 0; i < MAP_HEIGHT; i++)

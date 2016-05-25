@@ -104,8 +104,8 @@ void getLookingAtLocation(const int currentX, const int currentY, const char cur
       *lookingAtX = currentX;
       break;
     default:
-      lookingAtX = currentX;
-      lookingAtY = currentY;
+      *lookingAtX = currentX;
+      *lookingAtY = currentY;
   }
 }
 

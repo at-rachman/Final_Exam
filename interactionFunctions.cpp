@@ -135,7 +135,8 @@ void doCommand(const char command)
 void doLook(const int x, const int y, const char lookingDirection)
 {
   int lookingAtX, lookingAtY;
-  char mapSquare = getMapSquare(getLookingAtLocation(x, y, lookingDirection, &lookingAtX, &lookingAtY));
+  getLookingAtLocation(x, y, lookingDirection, &lookingAtX, &lookingAtY);
+  char mapSquare = getMapSquare(lookingAtX, lookingAtY);
   switch(mapSquare)
   {
     case MAP_SQUARE_CHASM:
@@ -181,8 +182,9 @@ void doTake(const int x, const int y, const char lookingDirection)
   bool success = false;
   lastMessage = "There is nothing to take.";
 
-  int itemX = getLookingAtX(x, lookingDirection);
-  int itemY = getLookingAtY(y, lookingDirection);
+  int itemX, itemY;
+  int lookingAtX, lookingAtY;
+  getLookingAtLocation(x, y, lookingDirection, &lookingAtX, &lookingAtY);
   char mapSquare = getMapSquare(itemX, itemY);
   switch(mapSquare)
   {
@@ -238,8 +240,9 @@ void doUse(const int x, const int y, const char lookingDirection)
   // start with default message
   lastMessage = "You can't use that here.";
 
-  int itemX = getLookingAtX(x, lookingDirection);
-  int itemY = getLookingAtY(y, lookingDirection);
+  int itemX, itemY;
+  int lookingAtX, lookingAtY;
+  getLookingAtLocation(x, y, lookingDirection, &lookingAtX, &lookingAtY);
   char mapSquare = getMapSquare(itemX, itemY);
 
   if (mapSquare == MAP_SQUARE_CHASM && itemToUse == MAP_SQUARE_PLANK)
@@ -430,7 +433,7 @@ void doSaveGame()
     }
   }
 
-  if (!saveGame(fileName, playerX, playerY, playerSymbol, inventoryItems, inventoryValues, numberOfItems))
+  if (!saveGame(fileName, playerX, playerY, playerSymbol, werewolfX, werewolfY, inventoryItems, inventoryValues, numberOfItems, werewolfHealth, werewolfStunnedCount))
   {
     lastMessage = "Could not save '";
     lastMessage += fileName;
