@@ -480,6 +480,8 @@ void doShowHelp()
     + tab + KEYBOARD_LOAD_GAME	+ "  Load game.\n"
     + tab + KEYBOARD_SAVE_GAME	+ "  Save game.\n"
     + tab + KEYBOARD_HELP		+ "  Display this menu.";
+    
+   skipWerewolfsTurn = true;
 }
 
 // DO NOT CHANGE OR REMOVE THE FOLLOWING LINE
