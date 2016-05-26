@@ -360,7 +360,81 @@ void getFarthestActionableLocation(const int maxActionDistance, const bool mustB
 
 bool playerIsLookingAt(const int x, const int y)
 {
-  return false;
+  char EMPTY_MAP_SQUARE;
+  bool visible = false;
+  
+  if (playerX == x)
+  {
+    switch(getPlayerSymbol()) {
+      case LOOKING_DEAD:
+      case LOOKING_LEFT:
+      case LOOKING_RIGHT:
+        visible = false;
+        break;
+      case LOOKING_UP:
+        if (y < playerY) {
+          for (int i = min(x, playerX) + 1; i < max(x, playerX);i++) {
+            if (getMapSquare(x, i) == EMPTY_MAP_SQUARE) {
+              visible = true;
+            }
+            else  {
+              visible = false;
+              break;
+            }  
+          }
+        } /* DO SOMETHING */
+      case LOOKING_DOWN:
+        if (y > playerY) {
+          for (int i = min(x, playerX) + 1; i < max(x, playerX);i++) {
+            if (getMapSquare(x, i) == EMPTY_MAP_SQUARE) {
+              visible = true;
+            }
+            else {
+              visible = false;
+              break;
+            }
+          }
+        }
+        /* DO SOMETHING */
+     } 
+
+    //for (i = min(x, playerX) + 1; i < max(x, playerX); i++)
+  }
+  else if (playerY == y)
+  {
+    switch(getPlayerSymbol()) {
+      case LOOKING_DEAD:
+      case LOOKING_UP:
+      case LOOKING_DOWN:
+        visible = false;
+        break;
+      case LOOKING_LEFT:
+        if (x < playerX) {
+          for (int i = min(y, playerY) + 1; i < max(y, playerY);i++) {
+            if (getMapSquare(i, y) == EMPTY_MAP_SQUARE) {
+              visible = true;
+            }
+            else {
+              visible = false;
+              break;
+            }
+          }
+        }
+      case LOOKING_RIGHT:
+        if (x < playerX) {
+          for (int i = min(y, playerY) + 1; i < max(y, playerY);i++) {
+            if (getMapSquare(i, y) == EMPTY_MAP_SQUARE) {
+              visible = true;
+            }
+            else {
+              visible = false;
+              break;
+            }
+          }
+        }
+      }
+  } 
+  return visible;
 }
 
 // DO NOT CHANGE OR REMOVE THE FOLLOWING LINE
