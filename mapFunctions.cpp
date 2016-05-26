@@ -163,7 +163,7 @@ bool loadGame(string fileName)
 
       for (int i = 0; i < mapWidth * mapHeight; i++)
       {
-        /* MISSING CODE - 1 line */
+        file.get();/* MISSING CODE - 1 line */
         if (file.fail())
         {
           break;
@@ -174,8 +174,8 @@ bool loadGame(string fileName)
           continue;
         }
 
-        int row = 0; /* MISSING CODE - FIX THIS LINE */
-        int col = 0; /* MISSING CODE - FIX THIS LINE */
+        int row = i / mapWidth; /* MISSING CODE - FIX THIS LINE */
+        int col = i % mapHeight; /* MISSING CODE - FIX THIS LINE */
         tempMap[row][col] = buffer;
         charactersRead++;
       }
@@ -293,7 +293,7 @@ void loadDefaultMap()
   FILE_WEREWOLF_START_STUN_COUNT = 0;
 }
 
-bool getRandomEmptyLocation(const int playerX, const int playerY, const int minDistanceFromPlayer, int emptyLocationX, int emptyLocationY)
+bool getRandomEmptyLocation(const int playerX, const int playerY, const int minDistanceFromPlayer, int& emptyLocationX, int& emptyLocationY)
 {
   int numberOfEmptyLocations = 0;
   for (int row = 0; row < MAP_HEIGHT; row++)
@@ -312,7 +312,7 @@ bool getRandomEmptyLocation(const int playerX, const int playerY, const int minD
     return false;
   }
 
-  const int stopAfterThisMany = 0 /* MISSING CODE */;
+  const int stopAfterThisMany = rand() % numberOfEmptyLocations /* MISSING CODE */;
   numberOfEmptyLocations = 0;
   for (int row = 0; row < MAP_HEIGHT; row++)
   {

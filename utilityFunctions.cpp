@@ -24,7 +24,12 @@ int abs(const int a)
 	// returns the absolute value of a
 	// for example: abs(3) returns 3; abs(-3) returns 3; abs(0) returns 0
 	/* MISSING CODE */
-	return a;
+  int b = a;
+  if (b < 0)
+  {
+    b *= (-1);
+  }
+	return b;
 }
 
 int sign(const int a)
@@ -32,7 +37,19 @@ int sign(const int a)
 	// returns the sign of a:
 	// 0 if a is 0; 1 if a is positive; -1 if a is negative
 	/* MISSING CODE */
-	return 0;
+  if (a == 0)
+  {
+   return a; 
+  }
+  else if (a > 0)
+  {
+    return 1;
+  }
+  else
+  {
+	  return -1;
+  }
+  return 0;
 }
 
 int manhattanDistance(const int firstX, const int firstY, const int secondX, const int secondY)

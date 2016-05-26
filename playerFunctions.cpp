@@ -360,7 +360,6 @@ void getFarthestActionableLocation(const int maxActionDistance, const bool mustB
 
 bool playerIsLookingAt(const int x, const int y)
 {
-  char EMPTY_MAP_SQUARE;
   bool visible = false;
   
   if (playerX == x)
@@ -374,7 +373,7 @@ bool playerIsLookingAt(const int x, const int y)
       case LOOKING_UP:
         if (y < playerY) {
           for (int i = min(x, playerX) + 1; i < max(x, playerX);i++) {
-            if (getMapSquare(x, i) == EMPTY_MAP_SQUARE) {
+            if (canSeePast(x, i)) {
               visible = true;
             }
             else  {
@@ -382,11 +381,11 @@ bool playerIsLookingAt(const int x, const int y)
               break;
             }  
           }
-        } /* DO SOMETHING */
+        } 
       case LOOKING_DOWN:
         if (y > playerY) {
           for (int i = min(x, playerX) + 1; i < max(x, playerX);i++) {
-            if (getMapSquare(x, i) == EMPTY_MAP_SQUARE) {
+            if (canSeePast(x, i)) {
               visible = true;
             }
             else {
@@ -395,10 +394,8 @@ bool playerIsLookingAt(const int x, const int y)
             }
           }
         }
-        /* DO SOMETHING */
      } 
 
-    //for (i = min(x, playerX) + 1; i < max(x, playerX); i++)
   }
   else if (playerY == y)
   {
@@ -411,7 +408,7 @@ bool playerIsLookingAt(const int x, const int y)
       case LOOKING_LEFT:
         if (x < playerX) {
           for (int i = min(y, playerY) + 1; i < max(y, playerY);i++) {
-            if (getMapSquare(i, y) == EMPTY_MAP_SQUARE) {
+            if (canSeePast(i, y)) {
               visible = true;
             }
             else {
@@ -423,7 +420,7 @@ bool playerIsLookingAt(const int x, const int y)
       case LOOKING_RIGHT:
         if (x < playerX) {
           for (int i = min(y, playerY) + 1; i < max(y, playerY);i++) {
-            if (getMapSquare(i, y) == EMPTY_MAP_SQUARE) {
+            if (canSeePast(i, y)) {
               visible = true;
             }
             else {
